@@ -7,7 +7,6 @@ function showtime() {
   let min = now.getMinutes();
   let sec = now.getSeconds();
 
-  // Convert to 12-hour format with AM/PM
   let ampm = hour >= 12 ? "PM" : "AM";
   hour = hour % 12;
   hour = hour ? hour : 12;
@@ -19,7 +18,6 @@ function showtime() {
   let currentTime = `${hour}:${min}:${sec} ${ampm}`;
   document.getElementById("clock").innerText = currentTime;
 
-  // Check alarm match (without seconds)
   let currentAlarmTime = `${hour}:${min}`;
   if (alarm === currentAlarmTime ) {
     alarmsound.play();
@@ -39,7 +37,6 @@ function setalarm() {
     let [hour, min] = input.split(":");
     hour = parseInt(hour);
   
-    // Replace ternary with if-else
     let ampm;
     if (hour >= 12) {
       ampm = "PM";
